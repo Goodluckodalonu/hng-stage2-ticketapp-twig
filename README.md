@@ -4,7 +4,7 @@ A complete, production-ready ticket management system built with PHP, Twig templ
 
 ## Live Demo
 
-**Live Application:** [https://your-ticketapp.herokuapp.com](https://ticket-app-twig-hng.onrender.com/)  
+**Live Application:** [https://ticket-app-twig-hng.onrender.com](https://ticket-app-twig-hng.onrender.com/)  
 **Demo Credentials:**
 - Email: `demo@ticketapp.com`
 - Password: `password`
