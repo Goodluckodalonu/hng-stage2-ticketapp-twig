@@ -14,16 +14,21 @@ RUN echo '<Directory /var/www/html/>\n\
     Require all granted\n\
 </Directory>' > /etc/apache2/conf-enabled/app.conf
 
-# Copy app files to the Apache web directory
+# Copy app files
 COPY . /var/www/html/
 
 # Set working directory
 WORKDIR /var/www/html
 
+# Give Apache permission to write to data directory
+RUN mkdir -p /var/www/html/data && \
+    chown -R www-data:www-data /var/www/html/data && \
+    chmod -R 775 /var/www/html/data
+
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose Render's default port
+# Expose port
 EXPOSE 10000
 
 # Run Apache in the foreground
