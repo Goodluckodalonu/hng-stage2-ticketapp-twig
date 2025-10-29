@@ -1,0 +1,31 @@
+<header>
+    <div class="header-content">
+        <a href="/" class="logo">
+            <i class="fas fa-ticket-alt"></i>
+            <h1>{{ app_name }}</h1>
+        </a>
+        <nav>
+            {% if isAuthenticated() %}
+                <a href="/dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="/tickets">
+                    <i class="fas fa-list"></i> Tickets
+                </a>
+                <a href="/logout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            {% else %}
+                <a href="/dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="/tickets">
+                    <i class="fas fa-list"></i> Tickets
+                </a>
+                <a href="/login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            {% endif %}
+        </nav>
+    </div>
+</header>

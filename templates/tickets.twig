@@ -1,0 +1,95 @@
+{% extends "base.twig" %}
+
+{% block title %}Tickets - {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="tickets">
+        <h2><i class="fas fa-list"></i> Ticket Management</h2>
+        
+        <div class="card create-form">
+            <h3>{{ editingTicket ? 'Edit Ticket' : 'Create New Ticket' }}</h3>
+            <form method="POST">
+                {% if editingTicket %}
+                    <input type="hidden" name="ticket_id" value="{{ editingTicket.id }}">
+                    <input type="hidden" name="action" value="update">
+                {% else %}
+                    <input type="hidden" name="action" value="create">
+                {% endif %}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" name="title" 
+                               placeholder="Enter ticket title" 
+                               value="{{ editingTicket.title ?? formData.title }}" 
+                               required>
+                        {% if errors.title %}
+                            <div class="error-message">{{ errors.title }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="open" {{ (editingTicket.status ?? formData.status) == 'open' ? 'selected' : '' }}>Open</option>
+                            <option value="in_progress" {{ (editingTicket.status ?? formData.status) == 'in_progress' ? 'selected' : '' }}>In Progress</option>
+                            <option value="closed" {{ (editingTicket.status ?? formData.status) == 'closed' ? 'selected' : '' }}>Closed</option>
+                        </select>
+                        {% if errors.status %}
+                            <div class="error-message">{{ errors.status }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter ticket description">{{ editingTicket.description ?? formData.description }}</textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas {{ editingTicket ? 'fa-save' : 'fa-plus' }}"></i> 
+                        {{ editingTicket ? 'Update Ticket' : 'Create Ticket' }}
+                    </button>
+                    {% if editingTicket %}
+                        <a href="/tickets" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+        <div class="tickets-list">
+            <h3>All Tickets</h3>
+            <div class="ticket-cards">
+                {% if tickets is empty %}
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No tickets yet. Create your first ticket above!</p>
+                    </div>
+                {% else %}
+                    {% for ticket in tickets %}
+                        <div class="card ticket-card">
+                            <div class="ticket-header">
+                                <strong>{{ ticket.title }}</strong>
+                                <div class="status {{ ticket.status }}">{{ ticket.status|replace({'_': ' '}) }}</div>
+                            </div>
+                            <p class="ticket-desc">{{ ticket.description ?: 'No description provided' }}</p>
+                            <div class="ticket-footer">
+                                <a href="/tickets?edit={{ ticket.id }}" class="btn btn-warning">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <form method="POST" action="/tickets/delete" class="delete-form">
+                                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this ticket?')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.twig" %}
+
+{% block title %}Dashboard - {{ parent() }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="dashboard">
+        <h2><i class="fas fa-chart-pie"></i> Dashboard</h2>
+        <p class="welcome-message">Welcome back, {{ current_user.name }}!</p>
+        
+        <div class="stats">
+            <div class="card stat-card">
+                <div class="stat-icon total">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ stats.total }}</div>
+                    <div class="stat-label">Total Tickets</div>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon open">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ stats.open }}</div>
+                    <div class="stat-label">Open</div>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon in-progress">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ stats.in_progress }}</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-icon closed">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-value">{{ stats.closed }}</div>
+                    <div class="stat-label">Closed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-actions">
+            <a href="/tickets" class="btn btn-primary">
+                <i class="fas fa-list"></i> Manage Tickets
+            </a>
+            <a href="/logout" class="btn btn-secondary">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

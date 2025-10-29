@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TicketApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8fafc; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .form-container { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        input { width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 1rem; }
+        .btn { padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-primary { background: #4f46e5; color: white; }
+        .form-footer { text-align: center; margin-top: 1.5rem; color: #6b7280; }
+        .form-footer a { color: #4f46e5; text-decoration: none; }
+        header { background: white; padding: 1rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo h1 { color: #4f46e5; margin: 0; }
+        .logo i{font-size: 33px;}
+        nav { display: flex; gap: 2rem; }
+        nav a { text-decoration: none; color: #6b7280; display: flex; align-items: center; gap: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-ticket-alt"></i>
+                <h1>TicketApp</h1>
+            </a>
+            <nav>
+                <a href="/">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="/signup">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <form method="POST" class="card">
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" value="demo@ticketapp.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" value="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-footer">
+                <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+            </div>
+        </form>
+    </div>
+
+    {% if toast %}
+        <div style="position: fixed; top: 20px; right: 20px; background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border-left: 4px solid {% if toast.type == 'success' %}#10b981{% elseif toast.type == 'error' %}#ef4444{% else %}#f59e0b{% endif %}; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-{% if toast.type == 'success' %}check-circle{% elseif toast.type == 'error' %}exclamation-circle{% else %}exclamation-triangle{% endif %}" style="color: {% if toast.type == 'success' %}#10b981{% elseif toast.type == 'error' %}#ef4444{% else %}#f59e0b{% endif %};"></i>
+            {{ toast.message }}
+        </div>
+    {% endif %}
+</body>
+</html>

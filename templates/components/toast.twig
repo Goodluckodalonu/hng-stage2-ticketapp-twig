@@ -1,0 +1,8 @@
+{% if toast %}
+    <div class="toast-container">
+        <div class="toast {{ toast.type }} show">
+            <i class="fas fa-{{ toast.type == 'success' ? 'check-circle' : (toast.type == 'error' ? 'exclamation-circle' : 'exclamation-triangle') }}"></i>
+            <span>{{ toast.message }}</span>
+        </div>
+    </div>
+{% endif %}

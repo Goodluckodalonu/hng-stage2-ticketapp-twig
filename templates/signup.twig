@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="container">
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+        <form method="POST" class="card" style="width: 100%; max-width: 400px;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </h2>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full Name</label>
+                <input type="text" name="name" placeholder="Enter your full name" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;" required>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                <input type="email" name="email" placeholder="Enter your email" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;" required>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
+                <input type="password" name="password" placeholder="Create a password" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;" required>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm your password" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px;" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+            <div style="text-align: center; margin-top: 1.5rem; color: #6b7280;">
+                <p>Already have an account? <a href="/login" style="color: #4f46e5;">Login here</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1761623664,
+        "name": "Demo",
+        "email": "demo@ticketapp.com",
+        "password": "password",
+        "createdAt": "2025-10-28T03:54:24+00:00"
+    },
+    {
+        "id": 1761624277,
+        "name": "goodluck",
+        "email": "goodluck@gmail.com",
+        "password": "11111",
+        "createdAt": "2025-10-28T04:04:37+00:00"
+    }
+]
