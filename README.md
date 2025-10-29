@@ -4,7 +4,7 @@ A complete, production-ready ticket management system built with PHP, Twig templ
 
 ## Live Demo
 
-**Live Application:** [https://your-ticketapp.herokuapp.com](https://your-ticketapp.herokuapp.com)  
+**Live Application:** [https://your-ticketapp.herokuapp.com](https://ticket-app-twig-hng.onrender.com/)  
 **Demo Credentials:**
 - Email: `demo@ticketapp.com`
 - Password: `password`
@@ -194,29 +194,66 @@ session_set_cookie_params([
 ### Option 1: Traditional Web Hosting
 1. Upload files to your web server via FTP/SFTP
 2. Ensure PHP 7.4+ is installed
-3. Set proper file permissions (755 for directories, 644 for files)
+3. Set proper file permissions
 4. Configure your web server (Apache/Nginx)
 
-### Option 2: Heroku (Recommended)
-```bash
-# Install Heroku CLI first
-heroku login
-heroku create your-ticketapp-name
-git init
-git add .
-git commit -m "Initial deployment"
-git push heroku main
-heroku open
-```
+Deployment on Render(recommended)
 
-### Option 3: Railway.app
-```bash
-# Install Railway CLI
-npm i -g @railway/cli
-railway login
-railway init
-railway up
-```
+Follow these steps to deploy your PHP + Twig app on Render:
+
+1️⃣ Prerequisites
+
+You have a Render account.
+
+Your code is pushed to a GitHub repository.
+
+A valid Dockerfile exists in the root of your project.
+
+2️⃣ Setup on Render
+
+Go to Render Dashboard
+
+Click “New +” → “Web Service”.
+
+Connect your GitHub repository.
+
+Choose the following options:
+
+Branch: main
+
+Environment: Docker
+
+Region: Oregon (US West)
+
+Instance Type: Free (for testing)
+
+Render will automatically detect your Dockerfile and start building your app.
+
+Once the build is complete, Render will deploy and give you a live URL like:
+
+https://your-app-name.onrender.com
+
+3️⃣ Updating Your App
+
+After making changes locally:
+
+git add .
+git commit -m "Update app"
+git push origin main
+
+
+Render will automatically rebuild and redeploy your app.
+
+4️⃣ Troubleshooting
+
+View logs under the Logs tab in the Render dashboard.
+
+If you encounter permission issues, make sure to update your Dockerfile to include:
+
+RUN chmod -R 777 /var/www/html/data
+
+
+To redeploy manually, click Manual Deploy → Deploy Latest Commit on Render.
 
 ### Option 4: Shared Hosting (cPanel)
 1. Create a new database (if using MySQL)
@@ -348,17 +385,12 @@ composer require --dev phpunit/phpunit
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is hng task-based and open source code. licensed under the MIT License.
 
 ## Support
 
 - **Documentation**: [GitHub Wiki](https://github.com/yourusername/ticketapp-twig/wiki)
 - **Issues**: [GitHub Issues](https://github.com/yourusername/ticketapp-twig/issues)
-- **Email**: support@ticketapp.com
 
 ## Acknowledgments
-
-- **Twig** team for the excellent templating engine
-- **Font Awesome** for the beautiful icon set
-- **PHP Community** for continuous improvements
 - **Contributors** who help improve this project
