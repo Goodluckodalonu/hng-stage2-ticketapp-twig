@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'ticketapp/twig',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'ed7f8ee949550b598ac5af841a0e871a94136621',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -38,9 +38,9 @@
             'dev_requirement' => false,
         ),
         'ticketapp/twig' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'ed7f8ee949550b598ac5af841a0e871a94136621',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

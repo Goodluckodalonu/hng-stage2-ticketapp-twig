@@ -92,7 +92,7 @@ ticketapp-twig/
     └── twig/twig/         # Twig templating engine
 ```
 
-## Quick Start
+## Quick Starts
 
 ### Prerequisites
 - PHP 7.4 or higher
