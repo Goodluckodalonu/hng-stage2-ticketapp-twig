@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Initialize Twig
+// Initializee Twig
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader, [
     'cache' => false, // Set to 'cache' in production
