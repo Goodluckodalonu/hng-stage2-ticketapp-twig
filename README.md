@@ -9,6 +9,15 @@ A complete, production-ready ticket management system built with PHP, Twig templ
 - Email: `demo@ticketapp.com`
 - Password: `password`
 
+## Related Repositories
+
+| Framework       | Repo Link                                                                                 |
+| --------------- | ----------------------------------------------------------------------------------------- |
+| Root Repo    | [hng-stage2-ticketapp-root](https://github.com/Goodluckodalonu/hng-stage2-ticketapp-root) |
+| Vue Version  | [hng-stage2-ticketapp-vue](https://github.com/Goodluckodalonu/hng-stage2-ticketapp-vue)   |
+| React | [hng-stage2-ticketapp-react](https://github.com/Goodluckodalonu/hng-stage2-ticketapp-react) |
+
+
 ## Features
 
 ### Authentication & Security
