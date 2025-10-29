@@ -29,7 +29,7 @@ $path = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($path, PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Simple routing
+// Simple routing 
 switch ($path) {
     case '/':
         $controller = new LandingController();
@@ -87,5 +87,5 @@ switch ($path) {
         http_response_code(404);
         echo "Page not found";
         break;
-}
+ }
 ?>
