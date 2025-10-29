@@ -4,7 +4,7 @@ A complete, production-ready ticket management system built with PHP, Twig templ
 
 ## Live Demo
 
-**Live Application:** [https://ticket-app-twig-hng.onrender.com](https://ticket-app-twig-hng.onrender.com/)  
+**Live Application:** [Live App](https://ticket-app-twig-hng.onrender.com/)  
 **Demo Credentials:**
 - Email: `demo@ticketapp.com`
 - Password: `password`
@@ -103,8 +103,8 @@ ticketapp-twig/
 
 1. **Clone or download the project**
    ```bash
-   git clone https://github.com/yourusername/ticketapp-twig.git
-   cd ticketapp-twig
+   git clone https://github.com/Goodluckodalonu/hng-stage2-ticketapp-twig
+   cd hng-stage2-ticketapp-twig
    ```
 
 2. **Install PHP dependencies**
@@ -144,7 +144,7 @@ ticketapp-twig/
 ### Managing Tickets
 1. **Create a Ticket**:
    - Navigate to "Tickets" from the header
-   - Fill out the form with title (required), status (required), and description
+   - Fill out the form with title (required), status (required), and description(optional)
    - Click "Create Ticket"
 
 2. **Edit a Ticket**:
@@ -386,11 +386,6 @@ composer require --dev phpunit/phpunit
 ## License
 
 This project is hng task-based and open source code. licensed under the MIT License.
-
-## Support
-
-- **Documentation**: [GitHub Wiki](https://github.com/yourusername/ticketapp-twig/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ticketapp-twig/issues)
 
 ## Acknowledgments
 - **Contributors** who help improve this project
